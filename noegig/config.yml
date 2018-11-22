@@ -1,0 +1,6 @@
+base_url: https://api.noegig.at/v1.2
+api_key:
+apis:
+  - sites_radio: /regions
+  - locations_radio: /locations
+  - regions_radio: /regions

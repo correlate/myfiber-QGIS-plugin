@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/plugins/noegig" >
+        <file>static/img/icon_plugin.svg</file>
+    </qresource>
+</RCC>
