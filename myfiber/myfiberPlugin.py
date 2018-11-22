@@ -35,7 +35,7 @@ class myfiber():
             application at run time.
         :type iface: QgsInterface
         """
-        self.dialog = myfiberDialog.noegigDialogMain(iface)
+        self.dialog = myfiberDialog.myfiberDialogMain(iface)
 
     def initGui(self):
         """Create the menu entries and toolbar icons inside the QGIS GUI."""

@@ -14,7 +14,7 @@ Restart QGIS and activate plugin in Plugin Manager.
 
 Only modify the GUI over Qt Designer (part of QGIS distro):
 
-1. Open `gui/OSMtoolsDialogUI.ui` in Qt Designer
+1. Open `gui/myfiberDialogUI.ui` in Qt Designer
 2. Modify to your needs. Name the widgets accordingly.
 3. Save file.
 4. Check preview: `pyuic5 gui/myfiberDialogUI.ui -p`
