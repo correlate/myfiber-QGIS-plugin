@@ -20,27 +20,26 @@ Downloads GeoJSONs from the APIs at https://api.noegig.at/v1.2/doc#/.
  ***************************************************************************/
 """
 
-from .gui import noegigDialog
+import os.path
+
+# noinspection PyPep8Naming
+def classFactory(iface):  # pylint: disable=invalid-name
+    """Load OSMtools class from file.
+
+    :param iface: A QGIS interface instance.
+    :type iface: QgsInterface
+    """
+
+    from .myfiberPlugin import myfiber
+    return myfiber(iface)
 
 
-class noegig():
-    """QGIS Plugin Implementation."""
-        # noinspection PyTypeChecker,PyArgumentList,PyCallByClass
+__version__ = '0.1'
+__author__ = 'Nils Nolde'
+__date__ = '2018-11-22'
+__copyright__ = '(C) 2018 by corRelate GmbH'
 
-    def __init__(self, iface):
-        """Constructor.
-
-        :param iface: An interface instance that will be passed to this class
-            which provides the hook by which you can manipulate the QGIS
-            application at run time.
-        :type iface: QgsInterface
-        """
-        self.dialog = noegigDialog.noegigDialogMain(iface)
-
-    def initGui(self):
-        """Create the menu entries and toolbar icons inside the QGIS GUI."""
-
-        self.dialog.initGui()
-        
-    def unload(self):
-        self.dialog.unload()
+# Define plugin wide constants
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+ICON_DIR = os.path.join(BASE_DIR, 'static', 'img')
+CONFIG = os.path.join(BASE_DIR, 'config.yml')

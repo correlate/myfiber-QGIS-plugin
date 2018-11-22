@@ -28,9 +28,9 @@ from PyQt5.QtWidgets import (QAction,
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QIcon, QPixmap
 
-from noegig import ICON_DIR
-from noegig.gui import noegigDialogUI
-from noegig.core import configmanager
+from myfiber import ICON_DIR
+from myfiber.gui import myfiberDialogUI
+from myfiber.core import configmanager
 
 class noegigDialogMain(QDialog):
     """Defines all mandatory QGIS things about dialog."""
@@ -44,7 +44,7 @@ class noegigDialogMain(QDialog):
         QDialog.__init__(self, parent)
 
         # Set up UI
-        self.ui = noegigDialogUI.Ui_Dialog()
+        self.ui = myfiberDialogUI.Ui_Dialog()
         self.ui.setupUi(self)
 
         self._iface = iface

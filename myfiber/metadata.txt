@@ -7,7 +7,7 @@
 # This file should be included when you package your plugin.# Mandatory items:
 
 [general]
-name=noegig
+name=myfiber
 qgisMinimumVersion=3.0
 description=Client to access corRelate.at APIs for retrieval of glass fiber related data
 
@@ -26,7 +26,7 @@ repository=https://not.available.either
 
 # Uncomment the following line and add your changelog:
 
-changelog=2018/11/22 First version
+changelog=2018/11/22 v0.1 First version
 
 
 # Tags are comma separated with spaces allowed

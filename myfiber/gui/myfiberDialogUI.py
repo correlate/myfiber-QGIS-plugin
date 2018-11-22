@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'gui/noegigDialogUI.ui'
+# Form implementation generated from reading ui file 'gui/myfiberDialogUI.ui'
 #
 # Created by: PyQt5 UI code generator 5.9.2
 #
@@ -32,6 +32,7 @@ class Ui_Dialog(object):
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.api_group)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.sites_radio = QtWidgets.QRadioButton(self.api_group)
+        self.sites_radio.setChecked(True)
         self.sites_radio.setObjectName("sites_radio")
         self.verticalLayout_3.addWidget(self.sites_radio)
         self.locations_radio = QtWidgets.QRadioButton(self.api_group)

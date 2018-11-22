@@ -22,7 +22,7 @@ Downloads GeoJSONs from the APIs at https://api.noegig.at/v1.2/doc#/.
 import os.path
 import yaml
 
-from noegig import BASE_DIR, CONFIG
+from myfiber import BASE_DIR, CONFIG
 
 
 def read():
