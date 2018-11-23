@@ -34,7 +34,7 @@ from qgis.core import QgsVectorLayer, QgsProject
 
 from myfiber import ICON_DIR
 from myfiber.gui import myfiberDialogUI
-from myfiber.core import configmanager, client, exceptions
+from myfiber.core import request, configmanager, exceptions
 
 
 class myfiberDialogMain(QDialog):
@@ -89,7 +89,7 @@ class myfiberDialogMain(QDialog):
         self.action.triggered.connect(self.run)
 
     def unload(self):
-        """Gets called when QGIS is closing"""
+        """Gets called when plugin is deactivated"""
         self._iface.removePluginMenu('&' + self.plugin_name, self.action)
         self._iface.removeToolBarIcon(self.action)
 
@@ -100,16 +100,20 @@ class myfiberDialogMain(QDialog):
         # If OK is clicked, it queries the API
         if result:
             try:
-                clnt = client.Client()
                 # Iterate through all widgets in api_group container and get only the checked radio button
                 for widget in self.ui.api_group.children(): # api_group is the name of the Qt group
                     if isinstance(widget, QRadioButton):
                         if widget.isChecked():
+                            # Get map extent
+                            extent_raw = self._iface.mapCanvas().extent().toString()
+                            map_epsg = self._iface.mapCanvas().mapSettings().destinationCrs().authid()
+
+                            # Perform request
                             url = self.CONFIG['apis'][widget.objectName()]
-                            response = clnt.request(url)
+                            response = request.RequestBuilder(url, extent_raw, map_epsg).build_request()
 
+                            # Add layer to map
                             layer = QgsVectorLayer(json.dumps(response), response['title'], "ogr")
-
                             QgsProject.instance().addMapLayer(layer)
 
             except exceptions.Timeout:
@@ -123,8 +127,8 @@ class myfiberDialogMain(QDialog):
 
             except Exception:
                 raise
-            # finally:
-            #     self.close()
+            finally:
+                self.close()
 
     def _keywriter(self):
         """

@@ -34,7 +34,7 @@ _RETRIABLE_STATUSES = [503]
 
 
 class Client(object):
-    """Performs requests to the ORS API services."""
+    """Performs requests to the corRelate API services."""
 
     def __init__(self,
                  retry_timeout=60):
@@ -67,7 +67,7 @@ class Client(object):
                 params=None,
                 first_request_time=None,
                 retry_counter=0):
-        """Performs HTTP GET/POST with credentials, returning the body asdlg
+        """Performs HTTP GET, returning the body
         JSON.
 
         :param url: URL extension for request. Should begin with a slash.
@@ -191,32 +191,8 @@ def _urlencode_params(params):
     """
     # urlencode does not handle unicode strings in Python 2.
     # Firstly, normalize the values so they get encoded correctly.
-    params = [(key, _normalize_for_urlencode(val)) for key, val in params]
+    params = [(key, val) for key, val in params]
     # Secondly, unquote unreserved chars which are incorrectly quoted
     # by urllib.urlencode, causing invalid auth signatures. See GH #72
     # for more info.
     return requests.utils.unquote_unreserved(urlencode(params))
-
-
-try:
-    unicode
-
-
-    # NOTE(cbro): `unicode` was removed in Python 3. In Python 3, NameError is
-    # raised here, and caught below.
-
-    def _normalize_for_urlencode(value):
-        """(Python 2) Converts the value to a `str` (raw bytes)."""
-        if isinstance(value, unicode):
-            return value.encode('utf8')
-
-        if isinstance(value, str):
-            return value
-
-        return _normalize_for_urlencode(str(value))
-
-except NameError:
-    def _normalize_for_urlencode(value):
-        """(Python 3) No-op."""
-        # urlencode in Python 3 handles all the types we are passing it.
-        return value

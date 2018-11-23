@@ -10,6 +10,8 @@ Unzip entire `.zip` contents to QGIS pugin dir:
 
 Restart QGIS and activate plugin in Plugin Manager.
 
+Or install via Plugin Manager's `Install from ZIP`.
+
 ## Modifying GUI
 
 Only modify the GUI over Qt Designer (part of QGIS distro):
@@ -19,6 +21,14 @@ Only modify the GUI over Qt Designer (part of QGIS distro):
 3. Save file.
 4. Check preview: `pyuic5 gui/myfiberDialogUI.ui -p`
 4. Populate the `.py` file: `pyuic5 gui/myfiberDialogUI.ui > gui/myfiberDialogUI.py`
+
+## Adding new API's
+
+**Note**, to implement POST methods, the logic has to be rewritten a bit.
+
+1. New radio button in the UI via Qt Designer. Give it a name, e.g. \<endpoint\>_radio
+2. Register the API in `myfiber/config.yml.apis` section, `button name: <endpoint>`
+3. That's it:)
 
 ## Compile plugin
 

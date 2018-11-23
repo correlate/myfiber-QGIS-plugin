@@ -11,7 +11,7 @@ name=myfiber
 qgisMinimumVersion=3.0
 description=Client to access corRelate.at APIs for retrieval of glass fiber related data
 
-version=0.1
+version=0.3
 author=corRelate GmbH
 email=hello@correlate.at
 
@@ -26,7 +26,9 @@ repository=https://not.available.either
 
 # Uncomment the following line and add your changelog:
 
-changelog=2018/11/22 v0.1 First version
+changelog=2018/11/23 v0.3 added bbox URL parameter
+  2018/11/23 v0.2 First working version
+  2018/11/22 v0.1 First GUI version
 
 
 # Tags are comma separated with spaces allowed
