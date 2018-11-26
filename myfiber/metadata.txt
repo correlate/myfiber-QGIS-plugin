@@ -9,17 +9,19 @@
 [general]
 name=myfiber
 qgisMinimumVersion=3.0
-description=Client to access corRelate.at APIs for retrieval of glass fiber related data
+description=Client access to myfiber API for fiber services
 
 version=0.3
-author=corRelate GmbH
+author=correlate analytics gmbh
 email=hello@correlate.at
 
-about=Here a catchy description
+about=myfiber provides access to a generic API for fiber service related information using a REST service.
+  A request requires a valid API Token and the header fields set properly.
+  API Tokens are provided by the fiber infrastructure providers (currently noegig.at only).
 
 
-tracker=https://not.available.yet
-repository=https://not.available.either
+tracker=https://github.com/correlate/myfiber-QGIS-plugin/issues
+repository=https://github.com/correlate/myfiber-QGIS-plugin.git
 # End of mandatory metadata
 
 # Recommended items:
