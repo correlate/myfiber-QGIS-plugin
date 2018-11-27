@@ -34,9 +34,9 @@ def classFactory(iface):  # pylint: disable=invalid-name
     return myfiber(iface)
 
 
-__version__ = '0.1'
+__version__ = '0.4'
 __author__ = 'Nils Nolde'
-__date__ = '2018-11-22'
+__date__ = '2018-11-27'
 __copyright__ = '(C) 2018 by corRelate GmbH'
 
 # Define plugin wide constants

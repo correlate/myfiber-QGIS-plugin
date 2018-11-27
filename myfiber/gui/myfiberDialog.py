@@ -83,14 +83,17 @@ class myfiberDialogMain(QDialog):
                               self._iface.mainWindow()  # parent
                               )
 
-        self._iface.addPluginToMenu('&' + self.plugin_name,
-                                    self.action)
+        # Adds plugin to 'Vector' menu
+        self._iface.vectorMenu().addAction(self.action)
+        # Adds plugin icon in general toolbar
         self._iface.addToolBarIcon(self.action)
+        # self.run is triggered when icon is clicked
         self.action.triggered.connect(self.run)
 
     def unload(self):
         """Gets called when plugin is deactivated"""
-        self._iface.removePluginMenu('&' + self.plugin_name, self.action)
+        # self._iface.removePluginMenu('&' + self.plugin_name, self.action)
+        self._iface.vectorMenu().removeAction(self.action)
         self._iface.removeToolBarIcon(self.action)
 
     def run(self):
