@@ -102,7 +102,7 @@ class myfiberDialogMain(QDialog):
         # If OK is clicked, it queries the API
         if result:
             final_url = self.ui.text_base.text() + self.ui.text_path.text()
-            layer_name = self.ui.text_name
+            layer_name = self.ui.text_name.text()
             try:
                 # Get map extent
                 extent_raw = self._iface.mapCanvas().extent().toString()
