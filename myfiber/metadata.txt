@@ -11,7 +11,7 @@ name=myfiber
 qgisMinimumVersion=3.0
 description=Client access to myfiber API for fiber services
 
-version=0.4
+version=0.5
 author=correlate analytics gmbh
 email=hello@correlate.at
 
@@ -28,7 +28,8 @@ repository=https://github.com/correlate/myfiber-QGIS-plugin.git
 
 # Uncomment the following line and add your changelog:
 
-changelog=2018/11/27 v0.4 add to Vector toolbar, add Plugin Manager icon
+changelog=2019/05/29 v0.5 make parameters more flexible for API development
+  2018/11/27 v0.4 add to Vector toolbar, add Plugin Manager icon
   2018/11/23 v0.3 added bbox URL parameter
   2018/11/23 v0.2 First working version
   2018/11/22 v0.1 First GUI version

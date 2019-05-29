@@ -25,7 +25,6 @@ import json
 
 from PyQt5.QtWidgets import (QAction,
                              QDialog,
-                             QRadioButton
                              )
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QIcon, QPixmap
@@ -102,27 +101,24 @@ class myfiberDialogMain(QDialog):
         result = self.exec_()
         # If OK is clicked, it queries the API
         if result:
+            final_url = self.ui.text_base.text() + self.ui.text_path.text()
+            layer_name = self.ui.text_name
             try:
-                # Iterate through all widgets in api_group container and get only the checked radio button
-                for widget in self.ui.api_group.children(): # api_group is the name of the Qt group
-                    if isinstance(widget, QRadioButton):
-                        if widget.isChecked():
-                            # Get map extent
-                            extent_raw = self._iface.mapCanvas().extent().toString()
-                            map_epsg = self._iface.mapCanvas().mapSettings().destinationCrs().authid()
+                # Get map extent
+                extent_raw = self._iface.mapCanvas().extent().toString()
+                map_epsg = self._iface.mapCanvas().mapSettings().destinationCrs().authid()
 
-                            # Perform request
-                            url = self.CONFIG['apis'][widget.objectName()]
-                            response = request.RequestBuilder(url, extent_raw, map_epsg).build_request()
+                # Perform request
+                response = request.RequestBuilder(final_url, extent_raw, map_epsg).build_request()
 
-                            # Add layer to map
-                            layer = QgsVectorLayer(json.dumps(response), response['title'], "ogr")
-                            QgsProject.instance().addMapLayer(layer)
+                # Add layer to map
+                layer = QgsVectorLayer(json.dumps(response), layer_name, "ogr")
+                QgsProject.instance().addMapLayer(layer)
 
             except exceptions.Timeout:
                 self._iface.messageBar().pushCritical('Time out',
                                                       'The connection exceeded the '
-                                                      'timeout limit of 60 seconds')
+                                                      'timeout limit of 20 seconds')
 
             except exceptions.ApiError as e:
                 self._iface.messageBar().pushCritical("{}: ".format(type(e)),

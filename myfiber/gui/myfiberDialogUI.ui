@@ -33,46 +33,43 @@
       <item>
        <widget class="QLineEdit" name="key_text"/>
       </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
-    <widget class="QGroupBox" name="api_group">
-     <property name="title">
-      <string>APIs</string>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
-       <widget class="QRadioButton" name="sites_radio">
-        <property name="text">
-         <string>Query sites</string>
+       <widget class="QGroupBox" name="api_group">
+        <property name="title">
+         <string>URL</string>
         </property>
-        <property name="checked">
-         <bool>true</bool>
-        </property>
-        <attribute name="buttonGroup">
-         <string notr="true">api_group_2</string>
-        </attribute>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="locations_radio">
-        <property name="text">
-         <string>Query locations</string>
-        </property>
-        <attribute name="buttonGroup">
-         <string notr="true">api_group_2</string>
-        </attribute>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="regions_radio">
-        <property name="text">
-         <string>Query regions</string>
-        </property>
-        <attribute name="buttonGroup">
-         <string notr="true">api_group_2</string>
-        </attribute>
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>Path</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>Base</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="text_path"/>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="text_base"/>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="text_name"/>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>Name</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </item>
      </layout>
@@ -90,6 +87,12 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>key_text</tabstop>
+  <tabstop>text_base</tabstop>
+  <tabstop>text_path</tabstop>
+  <tabstop>text_name</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>
@@ -125,7 +128,4 @@
    </hints>
   </connection>
  </connections>
- <buttongroups>
-  <buttongroup name="api_group_2"/>
- </buttongroups>
 </ui>

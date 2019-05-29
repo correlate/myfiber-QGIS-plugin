@@ -37,7 +37,7 @@ class Client(object):
     """Performs requests to the corRelate API services."""
 
     def __init__(self,
-                 retry_timeout=60):
+                 retry_timeout=10):
         """
         :param iface: A QGIS interface instance.
         :type iface: QgisInterface
@@ -50,7 +50,7 @@ class Client(object):
         base_params = configmanager.read()
 
         self.key = base_params['api_key']
-        self.base_url = base_params['base_url']
+        # self.base_url = base_params['base_url']
 
         self.session = requests.Session()
 
@@ -59,7 +59,8 @@ class Client(object):
         self.requests_kwargs.update({
             "headers": {"User-Agent": _USER_AGENT,
                         'Accept': 'application/geo+json',
-                        'X-API-KEY': self.key}
+                        'X-API-KEY': self.key},
+            "timeout": 20
         })
 
     def request(self,
@@ -113,11 +114,11 @@ class Client(object):
 
         requests_method = self.session.get
 
-        print("url:\n{}\nParameters:\n{}".format(self.base_url + authed_url,
+        print("url:\n{}\nParameters:\n{}".format(authed_url,
                                                  final_requests_kwargs))
 
         try:
-            response = requests_method(self.base_url + authed_url,
+            response = requests_method(authed_url,
                                        **final_requests_kwargs)
         except requests.exceptions.Timeout:
             raise exceptions.Timeout()
