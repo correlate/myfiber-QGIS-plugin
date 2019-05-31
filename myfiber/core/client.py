@@ -60,7 +60,7 @@ class Client(object):
             "headers": {"User-Agent": _USER_AGENT,
                         'Accept': 'application/geo+json',
                         'X-API-KEY': self.key},
-            "timeout": 20
+            "timeout": 30
         })
 
     def request(self,
@@ -197,3 +197,4 @@ def _urlencode_params(params):
     # by urllib.urlencode, causing invalid auth signatures. See GH #72
     # for more info.
     return requests.utils.unquote_unreserved(urlencode(params))
+
