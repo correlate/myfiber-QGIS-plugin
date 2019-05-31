@@ -35,3 +35,16 @@ Only modify the GUI over Qt Designer (part of QGIS distro):
 Only needs to be done, when `resources.qrc` changes, to e.g. include more images.
 
 `pyrcc5 -o resources_rc.py resources.qrc`
+
+
+# Upload to QGIS Repository
+
+## Create QGIS developer account
+
+Create QGIS developer account at OSGEO.
+
+## Upload
+
+Create a ZIP file from the code folder. Code need's to be in subdirectory.
+
+Upload plugin to `https://plugins.qgis.org/plugins/add/` 

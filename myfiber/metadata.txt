@@ -11,13 +11,15 @@ name=myfiber
 qgisMinimumVersion=3.0
 description=Client access to myfiber API for fiber services
 
-version=0.5
+version=0.5.2
 author=correlate analytics gmbh
 email=hello@correlate.at
 
-about=myfiber provides access to a generic API for fiber service related information using a REST service.
-  A request requires a valid API Token and the header fields set properly.
-  API Tokens are provided by the fiber infrastructure providers (currently noegig.at only).
+about=myfiber provides access to a generic API for fiber broadband services in Austria using a REST based https/json Interface.
+
+  Any request requires a valid API Token. API Tokens are provided by fiber infrastructure providers: noegig, bbrg
+
+  Even if access to the content requires a valid Token, the code might be useful for similar projects where Token based access is required.
 
 
 tracker=https://github.com/correlate/myfiber-QGIS-plugin/issues
@@ -28,7 +30,9 @@ repository=https://github.com/correlate/myfiber-QGIS-plugin.git
 
 # Uncomment the following line and add your changelog:
 
-changelog=2019/05/29 v0.5 make parameters more flexible for API development
+changelog=2019/05/31 v0.5.2 support for filter parameters
+  2019/05/30 v0.5.1 fixes issue if called immediately after QGIS startup
+  2019/05/29 v0.5 make parameters more flexible for API development
   2018/11/27 v0.4 add to Vector toolbar, add Plugin Manager icon
   2018/11/23 v0.3 added bbox URL parameter
   2018/11/23 v0.2 First working version
@@ -36,7 +40,7 @@ changelog=2019/05/29 v0.5 make parameters more flexible for API development
 
 
 # Tags are comma separated with spaces allowed
-tags=glass fiber, api
+tags=broadband,fiber,api
 
 homepage=https://correlate.at
 category=Plugins

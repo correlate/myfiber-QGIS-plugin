@@ -55,7 +55,7 @@ class myfiberDialogMain(QDialog):
         self._iface = iface
 
         # Programmtically invoke logo
-        logo = QPixmap(os.path.join(ICON_DIR, "logo-correlate.svg"))
+        logo = QPixmap(os.path.join(ICON_DIR, "logo-myfiber.svg"))
         pixmap = logo.scaled(200, 50,
                              aspectRatioMode=Qt.KeepAspectRatio,
                              transformMode=Qt.SmoothTransformation
